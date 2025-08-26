@@ -21,7 +21,8 @@ const PUBLIC_BASE =
 const INTERNAL_BASE =
   process.env.INTERNAL_API_BASE_URL || "http://backend:8080";   // server (container)
 
-const BASE = typeof window === "undefined" ? INTERNAL_BASE : PUBLIC_BASE;
+// const BASE = typeof window === "undefined" ? INTERNAL_BASE : PUBLIC_BASE;
+const BASE = INTERNAL_BASE;
 
 function buildUrl(path: string) {
   if (!path.startsWith("/")) path = `/${path}`;
