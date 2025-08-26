@@ -42,7 +42,7 @@ export default async function PreviewPage({
                      </div>
                      <h2 className="text-lg font-medium">
                         <Link
-                           href={`/article/${a.id}`}
+                           href={`/preview/${a.id}`}
                            className="hover:underline"
                            prefetch
                         >
