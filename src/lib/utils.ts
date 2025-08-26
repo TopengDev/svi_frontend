@@ -165,3 +165,22 @@ export function formatThousands(
            : 'id-ID';
    return n.toLocaleString(locale);
 }
+
+/**
+ * Splits words that exceed maxLen into chunks so they can wrap safely.
+ * 
+ * @param text The input sentence
+ * @param maxLen Maximum allowed length per word before splitting
+ * @returns A new string with long words split by spaces or zero-width spaces
+ */
+export function splitLongWords(text: string, maxLen = 20): string {
+  return text
+    .split(" ")
+    .map(word =>
+      word.length > maxLen
+        ? word.match(new RegExp(`.{1,${maxLen}}`, "g"))?.join(" ") ?? word
+        : word
+    )
+    .join(" ");
+}
+
